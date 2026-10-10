@@ -8,6 +8,7 @@ linkTitle: Generative AI
 
 Semantic conventions for Generative AI operations are defined for the following signals:
 
+* [Client Inference](client-inference.md): Semantic Conventions for Generative AI inference operations - *spans, events, and metrics*.
 * [Events](gen-ai-events.md): Semantic Conventions for Generative AI inputs and outputs - *events*.
 * [Execution state changes](gen-ai-execution.md): Semantic conventions for runtime-owned GenAI state deltas.
 * [Exceptions](gen-ai-exceptions.md): Semantic Conventions for Generative AI *exceptions*.

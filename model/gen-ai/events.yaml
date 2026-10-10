@@ -21,7 +21,7 @@ events:
         requirement_level:
           conditionally_required: When the instrumented runtime exposes a version for the resulting state.
   - name: gen_ai.client.inference.operation.details
-    requirement_level: opt_in
+    requirement_level: recommended
     brief: >
       Describes the details of a GenAI completion request including chat history
       and parameters.
@@ -32,7 +32,7 @@ events:
       Instrumentations SHOULD set the severity to DEBUG (severity number 5) when recording this event.
     stability: development
     attributes:
-      - ref_group: span.gen_ai.inference.client
+      - ref_group: span.gen_ai.client.inference
   - name: gen_ai.evaluation.result
     requirement_level: recommended
     brief: >

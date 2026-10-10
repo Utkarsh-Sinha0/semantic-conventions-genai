@@ -31,6 +31,11 @@ The event describes a runtime-owned state delta, not the state itself. It MUST
 NOT contain state values, transition payloads, tool arguments or results, raw
 idempotency data, or hidden reasoning.
 
+A state-change event is evidence of an observed runtime-owned state delta. It
+does not by itself establish that the change was authorized by the originating
+user or policy, that a tool admission decision occurred, or that the change was
+correct. Decision and authorization evidence remain separate concerns.
+
 ## Checkpoints, retries, and external effects
 
 Checkpoint storage operations remain owned by the applicable storage
@@ -48,6 +53,12 @@ or restored a business invariant. HTTP, database, messaging, and other
 applicable conventions remain the source of evidence for those operations.
 Instrumentations MUST NOT record raw idempotency keys, key-derived hashes, or
 deduplication identifiers under these conventions.
+
+A runtime state change does not by itself establish that a triggering tool call
+caused an externally visible effect. A post-call observation matching an
+expected value may reflect pre-existing state or another actor's mutation.
+External effect verification and causal attribution require separate evidence,
+such as a pre-action observation and target-system correlation.
 
 Compensation describes an attempted operation, not proof that an earlier
 business effect was completely reversed. Instrumentations MUST NOT infer a
